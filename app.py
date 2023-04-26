@@ -45,6 +45,7 @@ def communicate():
 # ユーザーインターフェイスの構築
 st.title(st.secrets.AppSettings.title)
 st.write(st.secrets.AppSettings.body)
+st.write(st.secrets.AppSettings.body2)
 
 user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_change=communicate)
 
