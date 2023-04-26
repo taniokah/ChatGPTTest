@@ -20,7 +20,7 @@ def communicate():
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages, 
-        temperature=1
+        temperature=st.secrets.AppSettings.temperature
     )  
 
     bot_message = response["choices"][0]["message"]
@@ -30,10 +30,10 @@ def communicate():
 
 
 # ユーザーインターフェイスの構築
-st.title("情報センター AIアシスタント")
-st.write("ChatGPT APIを使ったチャットボットです。")
+st.title(st.secrets.AppSettings.title)
+st.write(st.secrets.AppSettings.body)
 
-user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
+user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
