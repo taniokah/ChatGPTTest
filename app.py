@@ -18,7 +18,7 @@ if "messages" not in st.session_state:
                     st.secrets.AppSettings.chatbot_setting8 + 
                     st.secrets.AppSettings.chatbot_setting9 + 
                     st.secrets.AppSettings.chatbot_setting10 + 
-                    st.secrets.AppSettings.chatbot_setting11 + 
+                    st.secrets.AppSettings.chatbot_setting11
         }
         ]
 
