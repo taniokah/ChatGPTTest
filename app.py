@@ -30,7 +30,7 @@ def communicate():
 
 
 # ユーザーインターフェイスの構築
-st.title("徳島大学情報センター AIアシスタント")
+st.title("情報センター AIアシスタント")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
