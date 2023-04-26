@@ -7,7 +7,19 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": st.secrets.AppSettings.chatbot_setting}
+        {"role": "system", 
+         "content": st.secrets.AppSettings.chatbot_setting + 
+                    st.secrets.AppSettings.chatbot_setting2 + 
+                    st.secrets.AppSettings.chatbot_setting3 + 
+                    st.secrets.AppSettings.chatbot_setting4 + 
+                    st.secrets.AppSettings.chatbot_setting5 + 
+                    st.secrets.AppSettings.chatbot_setting6 + 
+                    st.secrets.AppSettings.chatbot_setting7 + 
+                    st.secrets.AppSettings.chatbot_setting8 + 
+                    st.secrets.AppSettings.chatbot_setting9 + 
+                    st.secrets.AppSettings.chatbot_setting10 + 
+                    st.secrets.AppSettings.chatbot_setting11 + 
+        }
         ]
 
 # チャットボットとやりとりする関数
