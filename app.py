@@ -12,13 +12,13 @@ if "messages" not in st.session_state:
                     st.secrets.AppSettings.chatbot_setting2 + 
                     st.secrets.AppSettings.chatbot_setting3 + 
                     st.secrets.AppSettings.chatbot_setting4 + 
-                    st.secrets.AppSettings.chatbot_setting5 #+ 
+                    st.secrets.AppSettings.chatbot_setting5 + 
                     #st.secrets.AppSettings.chatbot_setting6 + 
                     #st.secrets.AppSettings.chatbot_setting7 + 
                     #st.secrets.AppSettings.chatbot_setting8 + 
                     #st.secrets.AppSettings.chatbot_setting9 + 
                     #st.secrets.AppSettings.chatbot_setting10 + 
-                    #st.secrets.AppSettings.chatbot_setting11
+                    st.secrets.AppSettings.chatbot_setting11
         }
         ]
 
