@@ -32,8 +32,8 @@ def communicate():
                 a = as_[i].get_text() if i < len(as_) else ""
                 target.append("質問: " + q + "(" + r + ") 回答: " + a)
     target = ", ".join(target)
-    if len(target) > 0: 
-        st.write(target)
+    #if len(target) > 0: 
+        #st.write(target)
     
     messages = st.session_state["messages"]
     messages[0] = {
@@ -125,4 +125,4 @@ for i in range(len(qs_)) :
     words_a = [m.surface() for m in tokenizer_obj.tokenize(a, mode)]
     m = words_q + words_r + words_a
     ms_.append(m)
-
+st.write(ms_)
