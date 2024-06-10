@@ -96,7 +96,8 @@ mode = tokenizer.Tokenizer.SplitMode.B
 
 user_input = st.session_state["user_input"]
 inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
-st.write(inputs)
+if len(inputs) > 0:
+    st.write(inputs)
 target = []
 for i in range(len(qs_)) : 
     q = qs_[i].get_text() if i < len(qs_) else ""
