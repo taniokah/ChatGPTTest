@@ -1,4 +1,5 @@
 streamlit==1.30.0
 openai
 beautifulsoup4
-sudachipy sudachidict_core
+sudachipy
+sudachidict_core
