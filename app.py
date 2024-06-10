@@ -85,8 +85,11 @@ from sudachipy import dictionary
 tokenizer_obj = dictionary.Dictionary().create()
 
 mode = tokenizer.Tokenizer.SplitMode.B
-words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
+#words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
 for i in range(len(qs)) : 
     st.write(qs[i] + '(' + rs[i] + ') ' + es[i])
+    words = [m.surface() for m in tokenizer_obj.tokenize(qs[i], mode)]
+    st.write(words)
+    
