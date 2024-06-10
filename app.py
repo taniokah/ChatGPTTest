@@ -47,7 +47,6 @@ def communicate():
         #st.write(target)
     
     messages = st.session_state["messages"]
-    messages = messages[:3]
     if len(target) > 0: 
         messages[0] = {
             "role": "system", 
@@ -86,6 +85,7 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
+    st.session_state["messages"] = messages[:3]
 
 
 # ユーザーインターフェイスの構築
