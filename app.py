@@ -72,11 +72,17 @@ def communicate():
     }
     messages.append(user_message)
     
+    _messages = st.session_state["messages"]
+    if len(messages) > 5:
+        _messages = [messages[0]] + messages[3:]
+    
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
-        messages = messages, 
+        messages = _messages, 
         temperature=st.secrets.AppSettings.temperature
     )
+    
+    st.session_state["messages"] = messages
 
     bot_message = {
         "role": completion.choices[0].message.role,
