@@ -48,6 +48,8 @@ user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_ch
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
+    st.write(messages);
+
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant":
