@@ -76,7 +76,7 @@ def communicate():
         }
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] +  "」については回答できないですよね？とくぽんAI塾やプログラミングについての質問を促してください。"
+            "content": "「" + st.session_state["user_input"] +  "」については回答できないと回答して、とくぽんAI塾やプログラミングについての質問を促してください。"
         }
     
     _messages = st.session_state["messages"]
