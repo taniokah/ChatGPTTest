@@ -110,8 +110,8 @@ if st.session_state["messages"]:
             continue
         st.write(speaker + ": " + message["content"])
 
-    if len(messages) > 5:
-        st.session_state["messages"] = [messages[0]] + messages[3:]
+    #if len(messages) > 5:
+    #    st.session_state["messages"] = [messages[0]] + messages[3:]
 
 from bs4 import BeautifulSoup
 import requests
