@@ -22,7 +22,7 @@ def communicate():
         "role": "system", 
         "content": st.secrets.AppSettings.chatbot_setting + 
             "とくぽんAI塾では次のように説明されています。" + 
-            st.secrets.AppSettings.chatbot_setting2 + 
+            target + #st.secrets.AppSettings.chatbot_setting2 + 
             "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。"
     }
 
@@ -101,4 +101,7 @@ for i in range(len(qs_)) :
     #st.write(q + '(' + r + ') ' + a)
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
     #st.write(words)
-    
+
+target = "質問：" + qs_[3] + "(" + rs_[3] + ")" + " 答え:" + as_[3] + 
+    "質問：" + qs_[5] + "(" + rs_[5] + ")" + " 答え:" + as_[5]
+
