@@ -58,7 +58,7 @@ def communicate():
         messages[0] = {
             "role": "system", 
             "content": st.secrets.AppSettings.chatbot_setting + 
-                "そのため、質問の内容がわからないので、回答できません。" + 
+                "そのため、質問の内容がわからないので、回答できません。"
         }
 
     user_message = {
