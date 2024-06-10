@@ -53,13 +53,14 @@ def communicate():
             "content": st.secrets.AppSettings.chatbot_setting + 
                 "とくぽんAI塾では次のように説明されています。" + 
                 target + #st.secrets.AppSettings.chatbot_setting2 + 
-                "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。"
+                "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
+                " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
     else:
         messages[0] = {
             "role": "system", 
             "content": st.secrets.AppSettings.chatbot_setting + 
-                "そのため、質問の内容がわからないので、回答できません。"
+                " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
 
     user_message = {
