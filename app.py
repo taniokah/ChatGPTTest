@@ -108,6 +108,7 @@ for i in range(len(qs_)) :
     for input in inputs:
         if input in words:
             target.append("質問: " + q + "(" + r + ") 回答: " + a)
+            break
 
 target = ", ".join(target)
 st.write(target)
