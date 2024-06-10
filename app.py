@@ -54,7 +54,7 @@ if st.session_state["messages"]:
 
     st.write(messages);
 
-    for message in reversed(messages[len(messages)-1:]):  # 直近のメッセージを上に
+    for message in reversed(2:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant":
             speaker="🤖"
@@ -69,6 +69,7 @@ url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
 
 res = requests.get(url)
 soup = BeautifulSoup(res.text, 'html.parser')
-st.write(title_text = soup.find('title').get_text())
+title_text = soup.find('title').get_text()
+st.write(title_text)
 
 
