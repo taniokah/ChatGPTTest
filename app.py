@@ -46,13 +46,20 @@ def communicate():
         #st.write(target)
     
     messages = st.session_state["messages"]
-    messages[0] = {
-        "role": "system", 
-        "content": st.secrets.AppSettings.chatbot_setting + 
-            "とくぽんAI塾では次のように説明されています。" + 
-            target + #st.secrets.AppSettings.chatbot_setting2 + 
-            "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。"
-    }
+    if len(target) > 0: 
+        messages[0] = {
+            "role": "system", 
+            "content": st.secrets.AppSettings.chatbot_setting + 
+                "とくぽんAI塾では次のように説明されています。" + 
+                target + #st.secrets.AppSettings.chatbot_setting2 + 
+                "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。"
+        }
+    else:
+        messages[0] = {
+            "role": "system", 
+            "content": st.secrets.AppSettings.chatbot_setting + 
+                "そのため、質問の内容がわからないので、回答できません。" + 
+        }
 
     user_message = {
         "role": "user", 
