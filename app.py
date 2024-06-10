@@ -109,7 +109,7 @@ filename='chive-1.3-mc90.kv'
 urlData = requests.get(url).content
 with open(filename ,mode='wb') as f: # wb でバイト型を書き込める
   f.write(urlData)
-f.write("loaded " + filename)
+st.write("loaded " + filename)
 
 import gensim
 
@@ -117,4 +117,4 @@ import gensim
 vectors = gensim.models.KeyedVectors.load("chive-1.3-mc90.kv")
 
 for word in words: 
-    f.write(word + ", " + vectors[word])
+    st.write(word + ", " + vectors[word])
