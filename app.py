@@ -91,7 +91,7 @@ def communicate():
         temperature=st.secrets.AppSettings.temperature
     )
     #st.write(messages)
-    messages[len[messages]-1] = user_message
+    messages[len(messages)-1] = user_message
     
     st.session_state["messages"] = messages
 
