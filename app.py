@@ -21,7 +21,7 @@ def communicate():
 
     user_message = {
         "role": "user", 
-        "content": st.secrets.AppSettings.chatbot_setting2
+        "content": st.session_state["user_input"]
     }
     messages.append(user_message)
     
