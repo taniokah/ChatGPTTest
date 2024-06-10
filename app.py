@@ -61,7 +61,10 @@ def communicate():
                 "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
                 " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
-        user_message_ = user_message
+        user_message_ = {
+            "role": user_message["role"], 
+            "content": user_message["content"]
+        }
     else:
         messages[0] = {
             "role": "system", 
