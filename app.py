@@ -78,7 +78,7 @@ def communicate():
         #}
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] +  "」の内容が、挨拶やとくぽんAI塾への質問ならば、返答文の形で30字以内で回答してください。" + 
+            "content": "「" + st.session_state["user_input"] +  "」の内容が、挨拶やとくぽんAI塾への質問ならば、返答文の形で1文30字以内で回答してください。" + 
                 "それ以外の場合は、「言ってる意味がわかりません」と回答してください。"
         }
     
