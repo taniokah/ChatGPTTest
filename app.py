@@ -32,7 +32,10 @@ def communicate():
         temperature=st.secrets.AppSettings.temperature
     )
 
-    bot_message = completion.choices[0].message
+    bot_message = {
+        "role": completion.choices[0].message.role,
+        "content": completion.choices[0].message.content, 
+    }
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
