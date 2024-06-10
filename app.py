@@ -23,7 +23,7 @@ def communicate():
         "content": st.secrets.AppSettings.chatbot_setting + 
             "とくぽんAI塾では次のように説明されています。" + 
             st.secrets.AppSettings.chatbot_setting2 + 
-            "この内容はすべて正しいので、これを元にとくぽんAI塾について回答してください。"
+            "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。"
     }
 
     user_message = {
