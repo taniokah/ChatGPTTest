@@ -85,7 +85,6 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
-    st.session_state["messages"] = messages[:3]
 
 
 # ユーザーインターフェイスの構築
@@ -110,6 +109,8 @@ if st.session_state["messages"]:
         else:
             continue
         st.write(speaker + ": " + message["content"])
+        
+    st.session_state["messages"] = messages[:1]
 
 from bs4 import BeautifulSoup
 import requests
