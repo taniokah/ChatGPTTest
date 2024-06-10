@@ -77,6 +77,7 @@ soup = BeautifulSoup(res.content.decode("utf-8", "ignore"), "html.parser") #è¿½å
 qs_ = soup.find_all(class_="q")
 rs_ = soup.find_all(class_="r")
 as_ = soup.find_all(class_="a")
+st.write(len(qs_) + ' ' + len(rs_) + ' ' + len(as_))
 
 
 from sudachipy import tokenizer
