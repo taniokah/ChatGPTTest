@@ -1,12 +1,3 @@
-from bs4 import BeautifulSoup
-import requests
-
-url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
-
-res = requests.get(url)
-soup = BeautifulSoup(res.text, 'html.parser')
-st.write(soup)
-
 import streamlit as st
 import openai
 from openai import OpenAI
@@ -69,3 +60,15 @@ if st.session_state["messages"]:
             speaker="🤖"
 
         st.write(speaker + ": " + message["content"])
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
+
+res = requests.get(url)
+soup = BeautifulSoup(res.text, 'html.parser')
+st.write(soup)
+
+
