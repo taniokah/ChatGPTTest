@@ -94,6 +94,7 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
+target = []
 for i in range(len(qs_)) : 
     q = qs_[i].get_text() if i < len(qs_) else ""
     r = rs_[i].get_text() if i < len(rs_) else ""
@@ -101,7 +102,10 @@ for i in range(len(qs_)) :
     #st.write(q + '(' + r + ') ' + a)
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
     #st.write(words)
+    if "プログラミング" in words:
+        target.append("質問: " + q + "(" + r + ") 回答: " + a)
 
-target = "質問：" + qs_[3]# + "(" + rs_[3] + ")" + " 答え:" + as_[3] + 
-    #"質問：" + qs_[5] + "(" + rs_[5] + ")" + " 答え:" + as_[5]
+target = ", ".join(target)
+st.write(target)
+
 
