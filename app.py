@@ -7,11 +7,18 @@ client = OpenAI(
     api_key = st.secrets.OpenAIAPI.openai_api_key
 )
 
+import datetime
+
+dt = datetime.datetime.today()  # ローカルな現在の日付と時刻を取得
+
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{
             "role": "system", 
-            "content": st.secrets.AppSettings.chatbot_setting
+            "content": st.secrets.AppSettings.chatbot_setting + 
+                " 今日は" + dt + "です。" + 
+                " あなたはいま、徳島大学常三島キャンパスにいます。" + 
+                " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。"
         }
     ]
 
