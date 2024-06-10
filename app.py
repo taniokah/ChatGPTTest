@@ -21,11 +21,16 @@ def communicate():
 
     user_message = {
         "role": "user", 
-        "content": "とくぽんAI塾では次のように説明されています。"+ 
+        "content": st.secrets.AppSettings.chatbot_setting2
+    }
+    messages.append(user_message)
+    
+    user_message = {
+        "role": "user", 
+        "content": "とくぽんAI塾では次のように説明されています。" + 
             st.secrets.AppSettings.chatbot_setting2 + 
             "とくぽんAI塾について、" + st.session_state["user_input"]
     }
-    messages.append(user_message)
 
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
@@ -54,7 +59,7 @@ if st.session_state["messages"]:
 
     #st.write(messages);
 
-    for message in reversed(messages[2:]):  # 直近のメッセージを上に
+    for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = ""
         if message["role"]=="assistant":
             speaker="🤖"
