@@ -102,6 +102,6 @@ for i in range(len(qs_)) :
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
     #st.write(words)
 
-target = "質問：" + qs_[3] + "(" + rs_[3] + ")" + " 答え:" + as_[3] + 
-    "質問：" + qs_[5] + "(" + rs_[5] + ")" + " 答え:" + as_[5]
+target = "質問：" + qs_[3]# + "(" + rs_[3] + ")" + " 答え:" + as_[3] + 
+    #"質問：" + qs_[5] + "(" + rs_[5] + ")" + " 答え:" + as_[5]
 
