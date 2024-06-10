@@ -53,30 +53,31 @@ def communicate():
     }
     user_message_ = {}
     if len(target) > 0: 
-        messages[0] = {
-            "role": "system", 
-            "content": st.secrets.AppSettings.chatbot_setting + 
-                "とくぽんAI塾では次のように説明されています。" + 
-                target + #st.secrets.AppSettings.chatbot_setting2 + 
-                "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
-                " systemに与えられた情報以外の情報を用いて会話してはいけません。"
-        }
+        #messages[0] = {
+        #    "role": "system", 
+        #    "content": st.secrets.AppSettings.chatbot_setting + 
+        #        "とくぽんAI塾では次のように説明されています。" + 
+        #        target + #st.secrets.AppSettings.chatbot_setting2 + 
+        #        "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
+        #        " systemに与えられた情報以外の情報を用いて会話してはいけません。"
+        #}
         user_message_ = {
             "role": user_message["role"], 
-            "content": user_message["content"]
+            "content": "「" + user_message["content"] + "」について、" + 
+                target + "を参考にして回答してください。"
         }
     else:
-        messages[0] = {
-            "role": "system", 
-            "content": st.secrets.AppSettings.chatbot_setting + 
-                " 今日は" + str(dt) + "です。" + 
-                " あなたはいま、徳島大学常三島キャンパスにいます。" + 
-                " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
-                " systemに与えられた情報以外の情報を用いて会話してはいけません。"
-        }
+        #messages[0] = {
+        #    "role": "system", 
+        #    "content": st.secrets.AppSettings.chatbot_setting + 
+        #        " 今日は" + str(dt) + "です。" + 
+        #        " あなたはいま、徳島大学常三島キャンパスにいます。" + 
+        #        " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
+        #        " systemに与えられた情報以外の情報を用いて会話してはいけません。"
+        #}
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] +  "」については回答できないと回答して、とくぽんAI塾やプログラミングについての質問を促してください。"
+            "content": "「" + st.session_state["user_input"] +  "」について、挨拶や一般的な会話でない場合は、回答できないと回答して、とくぽんAI塾やプログラミングについての質問を促してください。"
         }
     
     _messages = st.session_state["messages"]
