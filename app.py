@@ -1,3 +1,12 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = “https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html”
+
+res = requests.get(url)
+soup = BeautifulSoup(res.text, 'html.parser')
+st.write(soup)
+
 import streamlit as st
 import openai
 from openai import OpenAI
@@ -21,8 +30,9 @@ def communicate():
 
     user_message = {
         "role": "user", 
-        "content": st.secrets.AppSettings.chatbot_setting2 + 
-            st.session_state["user_input"]
+        "content": "とくぽんAI塾では次のように説明されています。"+ 
+            st.secrets.AppSettings.chatbot_setting2 + 
+            "とくぽんAI塾について、" + st.session_state["user_input"]
     }
     messages.append(user_message)
 
