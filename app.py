@@ -85,36 +85,37 @@ mode = tokenizer.Tokenizer.SplitMode.B
 words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
-#import requests
-#
-#url='https://sudachi.s3-ap-northeast-1.amazonaws.com/chive/chive-1.3-mc90_gensim.tar.gz'
-#filename='chive-1.3-mc90_gensim.tar.gz'
-#
-#urlData = requests.get(url).content
-#
-#with open(filename ,mode='wb') as f: # wb でバイト型を書き込める
-#  f.write(urlData)
-#
-#import tarfile
-#
-## tar.gzファイルを開く
-#with tarfile.open(filename, 'r:gz') as tar:
-#    tar.extractall()
-#
-
 import requests
 
-url='https://github.com/taniokah/ChatGPTTest/raw/main/chive-1.3-mc90.kv'
-filename='chive-1.3-mc90.kv'
+url='https://sudachi.s3-ap-northeast-1.amazonaws.com/chive/chive-1.3-mc90_gensim.tar.gz'
+filename='chive-1.3-mc90_gensim.tar.gz'
+
 urlData = requests.get(url).content
+
 with open(filename ,mode='wb') as f: # wb でバイト型を書き込める
   f.write(urlData)
 st.write("loaded " + filename)
 
+import tarfile
+
+# tar.gzファイルを開く
+with tarfile.open(filename, 'r:gz') as tar:
+    tar.extractall()
+st.write("extracted " + filename)
+
+#import requests
+#
+#url='https://github.com/taniokah/ChatGPTTest/raw/main/chive-1.3-mc90.kv'
+#filename='chive-1.3-mc90.kv'
+#urlData = requests.get(url).content
+#with open(filename ,mode='wb') as f: # wb でバイト型を書き込める
+#  f.write(urlData)
+#st.write("loaded " + filename)
+
 import gensim
 
-#vectors = gensim.models.KeyedVectors.load("./chive-1.3-mc90_gensim/chive-1.3-mc90.kv")
-vectors = gensim.models.KeyedVectors.load("chive-1.3-mc90.kv")
+vectors = gensim.models.KeyedVectors.load("./chive-1.3-mc90_gensim/chive-1.3-mc90.kv")
+#vectors = gensim.models.KeyedVectors.load("chive-1.3-mc90.kv")
 
 for word in words: 
     st.write(word + ", " + vectors[word])
