@@ -3,3 +3,6 @@ openai
 beautifulsoup4
 sudachipy
 sudachidict_core
+tarfile
+gensim
+
