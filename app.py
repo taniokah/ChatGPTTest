@@ -69,6 +69,6 @@ url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
 
 res = requests.get(url)
 soup = BeautifulSoup(res.text, 'html.parser')
-st.write(soup)
+st.write(title_text = soup.find('title').get_text())
 
 
