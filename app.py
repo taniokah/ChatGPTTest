@@ -20,7 +20,7 @@ def communicate():
     messages = st.session_state["messages"]
     messages[0] = {
         "role": "system", 
-        "content": st.secretes.AppSettings.chatbot_setting + 
+        "content": st.secrets.AppSettings.chatbot_setting + 
             "とくぽんAI塾では次のように説明されています。" + 
             st.secrets.AppSettings.chatbot_setting2 + 
             "とくぽんAI塾について回答してください"
