@@ -76,7 +76,7 @@ def communicate():
         }
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] #+  "」という質問には回答しなくていです。"
+            "content": "「" + st.session_state["user_input"] +  "」という質問には回答しなくていです。"
         }
     
     _messages = st.session_state["messages"]
@@ -102,7 +102,7 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
-    st.write(messages)
+    #st.write(messages)
 
 
 # ユーザーインターフェイスの構築
