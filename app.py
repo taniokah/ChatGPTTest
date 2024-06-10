@@ -126,4 +126,4 @@ for i in range(len(qs_)) :
     words_a = [m.surface() if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(a, mode)]
     m = words_q + words_r + words_a
     ms_.append(m)
-#st.write(ms_)
+st.write(ms_)
