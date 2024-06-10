@@ -101,6 +101,15 @@ words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #with tarfile.open(filename, 'r:gz') as tar:
 #    tar.extractall()
 #
+
+import requests
+
+url='https://github.com/taniokah/ChatGPTTest/raw/main/chive-1.3-mc90.kv'
+filename='chive-1.3-mc90.kv'
+urlData = requests.get(url).content
+with open(filename ,mode='wb') as f: # wb でバイト型を書き込める
+  f.write(urlData)
+
 import gensim
 
 #vectors = gensim.models.KeyedVectors.load("./chive-1.3-mc90_gensim/chive-1.3-mc90.kv")
