@@ -73,7 +73,10 @@ res = requests.get(url)
 res.encoding = res.apparent_encoding
 #soup = BeautifulSoup(res.text, 'html.parser')
 soup = BeautifulSoup(res.content.decode("utf-8", "ignore"), "html.parser") #追加
-title_text = soup.find('title').get_text()
+#title_text = soup.find('title').get_text()
+qs = soup.find_all(class_="q")
+rs = soup.find_all(class_="r")
+es = soup.find_all(class_="e")
 
 
 from sudachipy import tokenizer
@@ -85,5 +88,5 @@ mode = tokenizer.Tokenizer.SplitMode.B
 words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
-for word in words: 
-    st.write(word)
+for i in range(len(qs)) : 
+    st.write(qs[i] + '(' + rs[i] + ') ' + es[i])
