@@ -92,11 +92,11 @@ if st.session_state["messages"]:
         speaker = ""
         if message["role"]=="assistant":
             speaker="🤖"
-        if message["role"]=="user":
+        elif message["role"]=="user":
             speaker = "🙂"
-
+        else:
+            continue
         st.write(speaker + ": " + message["content"])
-st.write(messages)
 
 from bs4 import BeautifulSoup
 import requests
