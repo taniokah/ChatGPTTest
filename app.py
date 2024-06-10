@@ -19,8 +19,8 @@ if "messages" not in st.session_state:
 def communicate():
     user_input = st.session_state["user_input"]
     inputs = [m.surface()  if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(user_input, mode)]
-    if len(inputs) > 0:
-        st.write(inputs)
+    #if len(inputs) > 0:
+        #st.write(inputs)
 
     target = []
     for i in range(len(ms_)):
@@ -28,14 +28,14 @@ def communicate():
         for input in inputs:
             if len(input) > 1:
                 if input in m:
-                    st.write("key " + input)
+                    #st.write("key " + input)
                     q = qs_[i].get_text() if i < len(qs_) else ""
                     r = rs_[i].get_text() if i < len(rs_) else ""
                     a = as_[i].get_text() if i < len(as_) else ""
                     target.append("質問: " + q + "(" + r + ") 回答: " + a)
     target = ", ".join(target)
-    if len(target) > 0: 
-        st.write(target)
+    #if len(target) > 0: 
+        #st.write(target)
     
     messages = st.session_state["messages"]
     messages[0] = {
@@ -128,4 +128,4 @@ for i in range(len(qs_)) :
     words_a = [m.surface() if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(a, mode)]
     m = words_q + words_r + words_a
     ms_.append(m)
-st.write(ms_)
+#st.write(ms_)
