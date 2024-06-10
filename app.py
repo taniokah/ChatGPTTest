@@ -88,15 +88,15 @@ def communicate():
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
     
-    if len(messages) > 5:
-        _messages = [_messages[0]] + _messages[3:]
+    if len(messages) > 3:
+        _messages = [_messages[0]] + _messages[1:]
     
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
         messages = _messages, 
         temperature=st.secrets.AppSettings.temperature
     )
-    #st.write(messages)
+    st.write(_messages)
     messages[len(messages)-1] = user_message
     
     st.session_state["messages"] = messages
