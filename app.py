@@ -65,6 +65,7 @@ def communicate():
                 " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
                 " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
+    st.write(str(len(target)))
 
     user_message = {
         "role": "user", 
