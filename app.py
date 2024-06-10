@@ -101,6 +101,7 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
+    st.write(messages)
 
 
 # ユーザーインターフェイスの構築
@@ -170,4 +171,4 @@ for i in range(len(qs_)) :
     ms_.append(m)
 #st.write(ms_)
 
-st.write(messages)
+#st.write(messages)
