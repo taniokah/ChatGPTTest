@@ -60,6 +60,9 @@ def communicate():
         messages[0] = {
             "role": "system", 
             "content": st.secrets.AppSettings.chatbot_setting + 
+                " 今日は" + str(dt) + "です。" + 
+                " あなたはいま、徳島大学常三島キャンパスにいます。" + 
+                " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
                 " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
 
