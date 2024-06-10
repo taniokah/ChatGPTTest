@@ -81,7 +81,9 @@ def communicate():
     
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
+    st.write(messages)
     messages.append(user_message)
+    st.write(messages)
     
     if len(messages) > 5:
         _messages = [messages[0]] + messages[3:]
@@ -101,7 +103,6 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
-    st.write(messages)
 
 
 # ユーザーインターフェイスの構築
