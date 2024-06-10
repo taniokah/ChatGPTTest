@@ -64,7 +64,8 @@ def communicate():
         user_message_ = {
             "role": user_message["role"], 
             "content": "「" + user_message["content"] + "」について、" + 
-                target + "を参考にして回答してください。"
+                "「" + target + "」の内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
+                "与えられた情報以外を用いて会話してはいけません。"
         }
     else:
         #messages[0] = {
