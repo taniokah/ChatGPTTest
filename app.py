@@ -47,7 +47,7 @@ def communicate():
         #st.write(target)
     
     messages = st.session_state["messages"]
-    messages = messages[:1]
+    messages = messages[:3]
     if len(target) > 0: 
         messages[0] = {
             "role": "system", 
