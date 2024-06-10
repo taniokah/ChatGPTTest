@@ -82,7 +82,6 @@ def communicate():
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
     messages.append(user_message)
-    #st.write(messages)
     
     if len(messages) > 5:
         _messages = [messages[0]] + messages[3:]
@@ -92,6 +91,7 @@ def communicate():
         messages = _messages, 
         temperature=st.secrets.AppSettings.temperature
     )
+    st.write(messages)
     
     st.session_state["messages"] = messages
 
