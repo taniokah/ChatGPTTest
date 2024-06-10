@@ -94,11 +94,11 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
+user_input = st.session_state["user_input"]
+inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
+st.write(inputs)
 target = []
 for i in range(len(qs_)) : 
-    user_input = st.session_state["user_input"]
-    inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
-    
     q = qs_[i].get_text() if i < len(qs_) else ""
     r = rs_[i].get_text() if i < len(rs_) else ""
     a = as_[i].get_text() if i < len(as_) else ""
