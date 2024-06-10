@@ -52,13 +52,13 @@ user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_ch
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
-    st.write(messages);
+    #st.write(messages);
 
     for message in reversed(messages[2:]):  # 直近のメッセージを上に
         speaker = ""
         if message["role"]=="assistant":
             speaker="🤖"
-        if message["role"]=="assistant":
+        if message["role"]=="user":
             speaker = "🙂"
 
         st.write(speaker + ": " + message["content"])
@@ -77,7 +77,7 @@ soup = BeautifulSoup(res.content.decode("utf-8", "ignore"), "html.parser") #追�
 qs_ = soup.find_all(class_="q")
 rs_ = soup.find_all(class_="r")
 as_ = soup.find_all(class_="a")
-st.write(str(len(qs_)) + ' ' + str(len(rs_)) + ' ' + str(len(as_)))
+#st.write(str(len(qs_)) + ' ' + str(len(rs_)) + ' ' + str(len(as_)))
 
 
 from sudachipy import tokenizer
@@ -95,5 +95,5 @@ for i in range(len(qs_)) :
     a = as_[i].get_text() if i < len(as_) else ""
     st.write(q + '(' + r + ') ' + a)
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
-    st.write(words)
+    #st.write(words)
     
