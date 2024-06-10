@@ -79,7 +79,7 @@ def communicate():
         user_message_ = {
             "role": "user", 
             "content": "「" + st.session_state["user_input"] +  "」の内容が、挨拶やとくぽんAI塾への質問ならば、返答文の形で一文で回答してください。" + 
-                "それ以外の場合は、回答できないと回答してください。"
+                "それ以外の場合は、「言ってる意味がわかりません」と回答してください。"
         }
     
     _messages = st.session_state["messages"]
