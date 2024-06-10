@@ -112,6 +112,7 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
+morph = ('名詞', '動詞', '形容詞', '形容動詞')
 ms_ = []
 
 for i in range(len(qs_)) : 
@@ -120,9 +121,9 @@ for i in range(len(qs_)) :
     r = rs_[i].get_text() if i < len(rs_) else ""
     a = as_[i].get_text() if i < len(as_) else ""
     #st.write(q + '(' + r + ') ' + a)
-    words_q = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
-    words_r = [m.surface() for m in tokenizer_obj.tokenize(r, mode)]
-    words_a = [m.surface() for m in tokenizer_obj.tokenize(a, mode)]
+    words_q = [m.surface() if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(q, mode)]
+    words_r = [m.surface() if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(r, mode)]
+    words_a = [m.surface() if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(a, mode)]
     m = words_q + words_r + words_a
     ms_.append(m)
 #st.write(ms_)
