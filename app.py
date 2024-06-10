@@ -74,6 +74,13 @@ res.encoding = res.apparent_encoding
 #soup = BeautifulSoup(res.text, 'html.parser')
 soup = BeautifulSoup(res.content.decode("utf-8", "ignore"), "html.parser") #追加
 title_text = soup.find('title').get_text()
-st.write(title_text)
 
 
+from sudachipy import tokenizer
+from sudachipy import dictionary
+
+tokenizer_obj = dictionary.Dictionary().create()
+
+mode = tokenizer.Tokenizer.SplitMode.B
+words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
+st.write(words)
