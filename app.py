@@ -81,7 +81,6 @@ def communicate():
     
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
-    st.write(messages)
     messages.append(user_message)
     st.write(messages)
     
