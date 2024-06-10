@@ -6,28 +6,21 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [
-        {"role": "system", 
-         "content": st.secrets.AppSettings.chatbot_setting + 
-                    st.secrets.AppSettings.chatbot_setting2 + 
-                    st.secrets.AppSettings.chatbot_setting3 + 
-                    st.secrets.AppSettings.chatbot_setting4 + 
-                    st.secrets.AppSettings.chatbot_setting5 + 
-                    #st.secrets.AppSettings.chatbot_setting6 + 
-                    st.secrets.AppSettings.chatbot_setting7 + 
-                    #st.secrets.AppSettings.chatbot_setting8 + 
-                    #st.secrets.AppSettings.chatbot_setting9 + 
-                    #st.secrets.AppSettings.chatbot_setting10 + 
-                    st.secrets.AppSettings.chatbot_setting11 + 
-                    st.secrets.AppSettings.chatbot_setting12
+    st.session_state["messages"] = [{
+            "role": "system", 
+            "content": st.secrets.AppSettings.chatbot_setting
         }
-        ]
+    ]
 
 # チャットボットとやりとりする関数
 def communicate():
     messages = st.session_state["messages"]
 
-    user_message = {"role": "user", "content": st.session_state["user_input"]}
+    user_message = {
+        "role": "user", 
+        "content": st.secrets.AppSettings.chatbot_setting2 + 
+            st.session_state["user_input"]
+    }
     messages.append(user_message)
 
     response = openai.ChatCompletion.create(
