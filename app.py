@@ -21,24 +21,19 @@ def communicate():
     inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
     if len(inputs) > 0:
         st.write(inputs)
+
     target = []
-    for i in range(len(qs_)) : 
-        q = qs_[i].get_text() if i < len(qs_) else ""
-        r = rs_[i].get_text() if i < len(rs_) else ""
-        a = as_[i].get_text() if i < len(as_) else ""
-        #st.write(q + '(' + r + ') ' + a)
-        words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
-        #st.write(words)
+    for i in range(len(ms_)):
+        m = ms_[i]
         for input in inputs:
-            if len(input) > 1: 
-                if input in words:
-                    target.append("質問: " + q + "(" + r + ") 回答: " + a)
-                    break
-    
+            if input in m:
+                q = qs_[i].get_text() if i < len(qs_) else ""
+                r = rs_[i].get_text() if i < len(rs_) else ""
+                a = as_[i].get_text() if i < len(as_) else ""
+                target.append("質問: " + q + "(" + r" + ") 回答: " + a)
     target = ", ".join(target)
     if len(target) > 0: 
         st.write(target)
-    
     
     messages = st.session_state["messages"]
     messages[0] = {
@@ -117,4 +112,17 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
+ms_ = []
+
+for i in range(len(qs_)) : 
+    m = []
+    q = qs_[i].get_text() if i < len(qs_) else ""
+    r = rs_[i].get_text() if i < len(rs_) else ""
+    a = as_[i].get_text() if i < len(as_) else ""
+    #st.write(q + '(' + r + ') ' + a)
+    words_q = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
+    words_r = [m.surface() for m in tokenizer_obj.tokenize(r, mode)]
+    words_a = [m.surface() for m in tokenizer_obj.tokenize(a, mode)]
+    m = words_q + words_r + words_a
+    ms_.append(m)
 
