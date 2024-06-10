@@ -78,7 +78,7 @@ def communicate():
         #}
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] +  "」について、挨拶や一般的な会話には返答の形で回答してください。" + 
+            "content": "「" + st.session_state["user_input"] +  "」について、挨拶や一般的な会話には返答の形で一文で回答してください。" + 
                 "挨拶や一般的な会話でない場合は、回答できないと回答して、とくぽんAI塾やプログラミングについての質問を促してください。"
         }
     
