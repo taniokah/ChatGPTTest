@@ -76,12 +76,11 @@ def communicate():
         }
         user_message_ = {
             "role": "user", 
-            "content": "「" + st.session_state["user_input"] + "」という質問には回答しなくていです。"
+            "content": "「" + st.session_state["user_input"] #+  "」という質問には回答しなくていです。"
         }
     
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
-    messages.append(user_message)
     st.write(messages)
     
     if len(messages) > 5:
