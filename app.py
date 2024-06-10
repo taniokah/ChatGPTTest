@@ -26,7 +26,7 @@ def communicate():
     for i in range(len(ms_)):
         m = ms_[i]
         for input in inputs:
-            if len(input) > 0:
+            if len(input) > 1:
                 if input in m:
                     st.write("key " + input)
                     q = qs_[i].get_text() if i < len(qs_) else ""
