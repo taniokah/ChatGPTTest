@@ -90,9 +90,9 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #st.write(words)
 
 for i in range(len(qs_)) : 
-    q = qs_[i].get_text()
-    r = rs_[i].get_text()
-    a = as_[i].get_text()
+    q = qs_[i].get_text() if i < len(qs_) else ""
+    r = rs_[i].get_text() if i < len(rs_) else ""
+    a = as_[i].get_text() if i < len(as_) else ""
     st.write(q + '(' + r + ') ' + a)
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
     st.write(words)
