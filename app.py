@@ -18,6 +18,13 @@ if "messages" not in st.session_state:
 # チャットボットとやりとりする関数
 def communicate():
     messages = st.session_state["messages"]
+    messages[0] = {
+        "role": "system":
+        "content": st.secretes.AppSettings.chatbot_setting + 
+            "とくぽんAI塾では次のように説明されています。" + 
+            st.secrets.AppSettings.chatbot_setting2 + 
+            "とくぽんAI塾について回答してください"
+    }
 
     user_message = {
         "role": "user", 
@@ -25,13 +32,6 @@ def communicate():
     }
     messages.append(user_message)
     
-    user_message = {
-        "role": "user", 
-        "content": "とくぽんAI塾では次のように説明されています。" + 
-            st.secrets.AppSettings.chatbot_setting2 + 
-            "とくぽんAI塾について、" + st.session_state["user_input"]
-    }
-
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
         messages = messages, 
