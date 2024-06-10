@@ -70,7 +70,9 @@ import requests
 url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
 
 res = requests.get(url)
-soup = BeautifulSoup(res.text, 'html.parser')
+res.encoding = r.apparent_encoding
+#soup = BeautifulSoup(res.text, 'html.parser')
+soup = BeautifulSoup(res.content.decode("utf-8", "ignore"), "html.parser") #追加
 title_text = soup.find('title').get_text()
 st.write(title_text)
 
