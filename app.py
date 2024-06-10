@@ -78,7 +78,6 @@ def communicate():
         "content": completion.choices[0].message.content, 
     }
     messages.append(bot_message)
-    st.write(messages)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
 
@@ -146,3 +145,5 @@ for i in range(len(qs_)) :
     m = words_q + words_r + words_a
     ms_.append(m)
 #st.write(ms_)
+
+st.write(messages)
