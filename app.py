@@ -35,8 +35,8 @@ def communicate():
                     target.append("質問: " + q + "(" + r + ") 回答: " + a)
                     break
     
+    target = ", ".join(target)
     if len(target) > 0: 
-        target = ", ".join(target)
         st.write(target)
     
     
