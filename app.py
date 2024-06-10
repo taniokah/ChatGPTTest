@@ -54,10 +54,12 @@ if st.session_state["messages"]:
 
     st.write(messages);
 
-    for message in reversed(2:]):  # 直近のメッセージを上に
-        speaker = "🙂"
+    for message in reversed(messages[1:]):  # 直近のメッセージを上に
+        speaker = ""
         if message["role"]=="assistant":
             speaker="🤖"
+        if message["user"]=="assistant":
+            speaker = "🙂"
 
         st.write(speaker + ": " + message["content"])
 
