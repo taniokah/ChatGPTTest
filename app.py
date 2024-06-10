@@ -106,9 +106,10 @@ for i in range(len(qs_)) :
     words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
     #st.write(words)
     for input in inputs:
-        if input in words:
-            target.append("質問: " + q + "(" + r + ") 回答: " + a)
-            break
+        if len(input) > 1: 
+            if input in words:
+                target.append("質問: " + q + "(" + r + ") 回答: " + a)
+                break
 
 target = ", ".join(target)
 st.write(target)
