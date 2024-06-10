@@ -47,6 +47,11 @@ def communicate():
         #st.write(target)
     
     messages = st.session_state["messages"]
+    user_message = {
+        "role": "user", 
+        "content": st.session_state["user_input"]
+    }
+    user_message_ = {}
     if len(target) > 0: 
         messages[0] = {
             "role": "system", 
@@ -56,6 +61,7 @@ def communicate():
                 "この内容はすべて正しいので、これを元に、できるだけ原文のまま、回答してください。" + 
                 " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
+        user_message_ = user_message
     else:
         messages[0] = {
             "role": "system", 
@@ -65,15 +71,16 @@ def communicate():
                 " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
                 " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
-    st.write(str(len(target)))
+        user_message_ = {
+            "role": "user", 
+            "content": "「" + st.session_state["user_input"] + "」という質問には回答しなくていです。"
+        }
 
-    user_message = {
-        "role": "user", 
-        "content": st.session_state["user_input"]
-    }
-    messages.append(user_message)
     
     _messages = st.session_state["messages"]
+    _messages.append(user_message_)
+    messages.append(user_message)
+    
     if len(messages) > 5:
         _messages = [messages[0]] + messages[3:]
     
