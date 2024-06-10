@@ -19,7 +19,7 @@ if "messages" not in st.session_state:
 def communicate():
     messages = st.session_state["messages"]
     messages[0] = {
-        "role": "system":
+        "role": "system", 
         "content": st.secretes.AppSettings.chatbot_setting + 
             "とくぽんAI塾では次のように説明されています。" + 
             st.secrets.AppSettings.chatbot_setting2 + 
