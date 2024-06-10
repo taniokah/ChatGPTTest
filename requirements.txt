@@ -3,5 +3,5 @@ openai
 beautifulsoup4
 sudachipy
 sudachidict_core
-gensim
+scipy==1.10.1
 
