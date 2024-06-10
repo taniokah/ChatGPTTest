@@ -26,11 +26,12 @@ def communicate():
     for i in range(len(ms_)):
         m = ms_[i]
         for input in inputs:
-            if input in m:
-                q = qs_[i].get_text() if i < len(qs_) else ""
-                r = rs_[i].get_text() if i < len(rs_) else ""
-                a = as_[i].get_text() if i < len(as_) else ""
-                target.append("質問: " + q + "(" + r + ") 回答: " + a)
+            if len(input) > 0:
+                if input in m:
+                    q = qs_[i].get_text() if i < len(qs_) else ""
+                    r = rs_[i].get_text() if i < len(rs_) else ""
+                    a = as_[i].get_text() if i < len(as_) else ""
+                    target.append("質問: " + q + "(" + r + ") 回答: " + a)
     target = ", ".join(target)
     if len(target) > 0: 
         st.write(target)
