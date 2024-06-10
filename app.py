@@ -18,7 +18,7 @@ if "messages" not in st.session_state:
 # チャットボットとやりとりする関数
 def communicate():
     user_input = st.session_state["user_input"]
-    inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
+    inputs = [m.surface()  if m.part_of_speech()[0] in morph else ""  for m in tokenizer_obj.tokenize(user_input, mode)]
     if len(inputs) > 0:
         st.write(inputs)
 
