@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = “https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html”
+url = "https://www.tokushima-u.ac.jp/ai/tokupon/qalist2021.html"
 
 res = requests.get(url)
 soup = BeautifulSoup(res.text, 'html.parser')
