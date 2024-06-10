@@ -79,6 +79,7 @@ def communicate():
 st.title(st.secrets.AppSettings.title)
 st.write(st.secrets.AppSettings.body)
 st.write(st.secrets.AppSettings.body2)
+st.write(st.secrets.AppSettings.body3)
 
 user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_change=communicate)
 
