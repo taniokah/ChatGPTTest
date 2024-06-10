@@ -18,7 +18,8 @@ if "messages" not in st.session_state:
             "content": st.secrets.AppSettings.chatbot_setting + 
                 " 今日は" + str(dt) + "です。" + 
                 " あなたはいま、徳島大学常三島キャンパスにいます。" + 
-                " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。"
+                " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。" +
+                " systemに与えられた情報以外の情報を用いて会話してはいけません。"
         }
     ]
     #st.write(st.session_state["messages"])
@@ -130,7 +131,7 @@ mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
 
-morph = ('名詞', '動詞', '形容詞', '形容動詞')
+morph = ('名詞')
 ms_ = []
 
 for i in range(len(qs_)) : 
