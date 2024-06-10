@@ -17,6 +17,29 @@ if "messages" not in st.session_state:
 
 # チャットボットとやりとりする関数
 def communicate():
+    user_input = st.session_state["user_input"]
+    inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
+    if len(inputs) > 0:
+        st.write(inputs)
+    target = []
+    for i in range(len(qs_)) : 
+        q = qs_[i].get_text() if i < len(qs_) else ""
+        r = rs_[i].get_text() if i < len(rs_) else ""
+        a = as_[i].get_text() if i < len(as_) else ""
+        #st.write(q + '(' + r + ') ' + a)
+        words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
+        #st.write(words)
+        for input in inputs:
+            if len(input) > 1: 
+                if input in words:
+                    target.append("質問: " + q + "(" + r + ") 回答: " + a)
+                    break
+    
+    if len(target) > 0: 
+        target = ", ".join(target)
+        st.write(target)
+    
+    
     messages = st.session_state["messages"]
     messages[0] = {
         "role": "system", 
@@ -93,27 +116,5 @@ tokenizer_obj = dictionary.Dictionary().create()
 mode = tokenizer.Tokenizer.SplitMode.B
 #words = [m.surface() for m in tokenizer_obj.tokenize(title_text, mode)]
 #st.write(words)
-
-user_input = st.session_state["user_input"]
-inputs = [m.surface() for m in tokenizer_obj.tokenize(user_input, mode)]
-if len(inputs) > 0:
-    st.write(inputs)
-target = []
-for i in range(len(qs_)) : 
-    q = qs_[i].get_text() if i < len(qs_) else ""
-    r = rs_[i].get_text() if i < len(rs_) else ""
-    a = as_[i].get_text() if i < len(as_) else ""
-    #st.write(q + '(' + r + ') ' + a)
-    words = [m.surface() for m in tokenizer_obj.tokenize(q, mode)]
-    #st.write(words)
-    for input in inputs:
-        if len(input) > 1: 
-            if input in words:
-                target.append("質問: " + q + "(" + r + ") 回答: " + a)
-                break
-
-if len(target) > 0: 
-    target = ", ".join(target)
-    st.write(target)
 
 
