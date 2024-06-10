@@ -81,7 +81,6 @@ def communicate():
     
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
-    messages.append(user_message)
     
     if len(messages) > 5:
         _messages = [messages[0]] + messages[3:]
@@ -91,7 +90,8 @@ def communicate():
         messages = _messages, 
         temperature=st.secrets.AppSettings.temperature
     )
-    st.write(messages)
+    #st.write(messages)
+    messages[len[messages]-1] = user_message
     
     st.session_state["messages"] = messages
 
@@ -102,6 +102,7 @@ def communicate():
     messages.append(bot_message)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
+    st.write(messages)
 
 
 # ユーザーインターフェイスの構築
