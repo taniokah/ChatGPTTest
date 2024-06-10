@@ -21,6 +21,7 @@ if "messages" not in st.session_state:
                 " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。"
         }
     ]
+    st.write(st.session_state["messages"])
 
 # チャットボットとやりとりする関数
 def communicate():
