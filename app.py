@@ -88,8 +88,8 @@ def communicate():
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
     
-    if len(messages) > 3:
-        _messages = [_messages[0]] + _messages[1:]
+    if len(messages) > 5:
+        _messages = [_messages[0]] + _messages[len(messages)-5:]
     
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
