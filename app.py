@@ -16,7 +16,7 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = [{
             "role": "system", 
             "content": st.secrets.AppSettings.chatbot_setting + 
-                " 今日は" + dt + "です。" + 
+                " 今日は" + str(dt) + "です。" + 
                 " あなたはいま、徳島大学常三島キャンパスにいます。" + 
                 " とくぽんは、徳島大学に住み着いているマスコットキャラクターです。"
         }
