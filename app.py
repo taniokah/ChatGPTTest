@@ -79,17 +79,18 @@ def communicate():
         user_message_ = {
             "role": "user", 
             "content": "「" + st.session_state["user_input"] +  "」の内容が、挨拶の場合は、素直に回答してください。" +
-                "自己紹介や名前の確認は積極的にしましょう。" + 
                 "とくぽんAI塾に関連する話題の場合は、返答文の形で1文30字以内で回答してください。" + 
                  #"とくぽんAI塾への質問ならば、返答文の形で1文30字以内で回答してください。" + 
+                "自己紹介や名前の確認は積極的にしましょう。" + 
                 "それ以外の場合は、「どういう意味かな？」と回答してください。"
         }
     
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
-    
-    if len(messages) > 5:
-        _messages = [_messages[0]] + _messages[len(messages)-5:]
+
+    shrink = 3
+    if len(messages) > shrink:
+        _messages = [_messages[0]] + _messages[len(messages)-shrink:]
     
     completion = client.chat.completions.create(
         model = "gpt-3.5-turbo",
