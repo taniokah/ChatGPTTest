@@ -88,7 +88,7 @@ def communicate():
     _messages = st.session_state["messages"]
     _messages.append(user_message_)
 
-    shrink = 3
+    shrink = 5
     if len(messages) > shrink:
         _messages = [_messages[0]] + _messages[len(messages)-shrink:]
     
