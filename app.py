@@ -115,11 +115,12 @@ import requests
 
 # ユーザーインターフェイスの構築
 st.title(st.secrets.AppSettings.title)
-a_url = 'https://www.tokushima-u.ac.jp/fs/2/4/8/2/9/4/_/tokupon_1.jpg'
-st.image(io.BytesIO(requests.get(a_url).content), caption='とくぽん', width=300) #use_column_width=True)
 st.write(st.secrets.AppSettings.body)
 st.write(st.secrets.AppSettings.body2)
 st.write(st.secrets.AppSettings.body3)
+
+a_url = 'https://www.tokushima-u.ac.jp/fs/2/4/8/2/9/4/_/tokupon_1.jpg'
+st.image(io.BytesIO(requests.get(a_url).content), caption='とくぽん', width=100) #use_column_width=True)
 
 user_input = st.text_input(st.secrets.AppSettings.input, key="user_input", on_change=communicate)
 
