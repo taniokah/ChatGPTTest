@@ -110,6 +110,8 @@ def communicate():
     st.session_state["user_input"] = ""  # 入力欄を消去
     #st.write(messages)
 
+import io
+import requests
 
 # ユーザーインターフェイスの構築
 st.title(st.secrets.AppSettings.title)
