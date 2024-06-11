@@ -119,9 +119,9 @@ st.write(st.secrets.AppSettings.body)
 st.write(st.secrets.AppSettings.body2)
 st.write(st.secrets.AppSettings.body3)
 
-col1, col2 = st.columns([1, 4])
+col1, col2 = st.columns([1, 5])
 a_url = 'https://www.tokushima-u.ac.jp/fs/2/4/8/2/9/4/_/tokupon_1.jpg'
-col1.image(io.BytesIO(requests.get(a_url).content), caption='とくぽん', width=100) #use_column_width=True)
+col1.image(io.BytesIO(requests.get(a_url).content), caption='とくぽん', width=80) #use_column_width=True)
 
 user_input = col2.text_input(st.secrets.AppSettings.input, key="user_input", on_change=communicate)
 
